@@ -1,0 +1,25 @@
+.icon-hover:hover {
+  border-color: #3b71ca !important;
+  background-color: white !important;
+}
+
+.icon-hover:hover i {
+  color: #3b71ca !important;
+}
+
+.card:hover{
+  /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px !important; */
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06) !important;
+}
+
+.card .topbar
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  text-align: left;
+  padding: 10px 15px;
+}

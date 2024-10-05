@@ -13,10 +13,7 @@ const ProductsFilter = () => {
         setCategories(tempCategories)
 
     }
-
     useEffect(()=>getCategories,[])
-
-
     if (categoriesLoading)
         return <h1>categories loading...</h1>
 

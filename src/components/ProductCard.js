@@ -1,7 +1,18 @@
 import Rating from "./Rating"
-const ProductCard = ({ product, onProductClick }) => {
+import { useNavigate } from "react-router-dom";
+
+
+const ProductCard = ({ product}) => {
+
+  const navigate = useNavigate();
+  const handleSelection = (event) => {
+    const value = event.target.value;
+    // Perform navigation based on selected value
+    navigate(`/pages/ProductSingleCard/${product.id}`);
+  };
+
   return (
-    <div key={product.id} className="col-lg-4 col-md-6 col-sm-6 d-flex my-1">
+    <div key={product.id} className="col-lg-4 col-md-6 col-sm-6 d-flex my-1" onClick={handleSelection}>
       <div className="card shadow-2-strong w-100 my-2 ">
         <img
           src={product.image}
@@ -25,9 +36,6 @@ const ProductCard = ({ product, onProductClick }) => {
             <a href="#!" className="btn btn-light border icon-hover px-2 pt-2">
               <i className="fas fa-heart fa-lg text-secondary px-1"></i>
             </a>
-            <button onClick={() => onProductClick(product.id)}>
-              View Details
-            </button>
           </div>
         </div>
       </div>

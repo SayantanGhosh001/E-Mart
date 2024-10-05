@@ -4,15 +4,14 @@ import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ product}) => {
 
-  const navigate = useNavigate();
-  const handleSelection = (event) => {
-    const value = event.target.value;
-    // Perform navigation based on selected value
-    navigate(`/pages/ProductSingleCard/${product.id}`);
-  };
-
+const navigate = useNavigate();
+const handleProductClick = () => {
+// Navigate to the single product details page
+  console.log("Navigating to product details with ID:", product.id);
+ navigate(`/product/${product.id}`);
+};
   return (
-    <div key={product.id} className="col-lg-4 col-md-6 col-sm-6 d-flex my-1" onClick={handleSelection}>
+    <div key={product.id} className="col-lg-4 col-md-6 col-sm-6 d-flex my-1" onClick={handleProductClick}>
       <div className="card shadow-2-strong w-100 my-2 ">
         <img
           src={product.image}

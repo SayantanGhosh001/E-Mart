@@ -11,6 +11,8 @@
   /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px !important; */
   transform: scale(1.03);
   box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06) !important;
+    transition: transform .5s;
+
 }
 
 .card .topbar

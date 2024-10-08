@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import get from "../api/api"; // Assuming this is your API function to fetch data
 import "../css/product.css"
+import Header from './../components/Header';
+import LoadingSVG from "../image/Infinity@1x-1.0s-200px-200px.svg";
 
 const ProductSingleCard = () => {
   const { id } = useParams(); // Extract the product ID from the URL
@@ -25,7 +27,9 @@ const ProductSingleCard = () => {
   }, [id]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div style={{textAlign:"center",alignItems:"center",display:"flex",justifyContent:"center",height:"90vh"}}>
+      <img src={LoadingSVG} alt="loading" style={{width:"100px"}} />
+    </div>;
   }
 
   if (!product) {
@@ -34,19 +38,7 @@ const ProductSingleCard = () => {
 const descriptionItems = product.description.split(/\.\s+(?=[a-zA-Z])/);
   return (
     <>
-      <div className="nav-bar">
-        <div className="name">
-          <i className="fas fa-shopping-bag"></i>
-          E-Mart
-        </div>
-        <div className="cart">
-          <a href="#">
-            <i className="fas fa-shopping-cart"></i>
-          </a>
-          <div>Cart</div>
-        </div>
-        <button className="lgnbtn">Login</button>
-      </div>
+     <Header/>
       <div className="fullbody">
         <div className="bodyleft">
           <img src={product.image} alt={product.title} className="no1img" />

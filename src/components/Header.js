@@ -1,78 +1,93 @@
+import photo from "../image/fakeshop.png"
+import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { CartContext } from "./CartContext";
+
 const Header = () => {
-    return (
-      <header>
-        <div className="p-3 text-center bg-white border-bottom">
-          <div className="container">
-            <div className="row gy-3">
-              <div className="col-lg-2 col-sm-4 col-4">
-                <a href="#" target="_blank" className="float-start">
-                  <img src="fakeshop.png" height="45" />
-                  <div className="name">
-                    E-Mart
-                  </div>
+  const { cartItems } = useContext(CartContext); // Access cartItems from context
+  const cartCount = cartItems.length; // Get the number of items in the cart
+
+  return (
+    <header>
+      <div
+        className="text-center bg-white border-bottom"
+        style={{ boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px" }}
+      >
+        <div className="container">
+          <div
+            className="row gy-3"
+            style={{ display: "flex", justifyContent: "space-between" }}
+          >
+            <div className="col-lg-2 col-sm-4 col-4">
+              <a
+                href="#"
+                target="_blank"
+                className="float-start"
+                onClick={() => (window.location.href = "/")}
+              >
+                <img src={photo} height="45" style={{ marginBottom: "16px" }} />
+                <div className="name">E-Mart</div>
+              </a>
+            </div>
+            <div
+              className="order-lg-last col-lg-5 col-sm-8 col-8 "
+              style={{ marginTop: "30px" }}
+            >
+              <div className="d-flex float-end">
+                <a
+                  href="#"
+                  className="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center"
+                  target="_blank"
+                >
+                  <i className="fas fa-user-alt m-1 me-md-2"></i>
+                  <p className="d-none d-md-block mb-0">Sign in</p>
                 </a>
-              </div>
-              <div className="order-lg-last col-lg-5 col-sm-8 col-8">
-                <div className="d-flex float-end">
-                  <a
-                    href="#"
-                    className="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center"
-                    target="_blank"
-                  >
-                    <i className="fas fa-user-alt m-1 me-md-2"></i>
-                    <p className="d-none d-md-block mb-0">Sign in</p>
-                  </a>
-                  <a
-                    href="#"
-                    className="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center"
-                    target="_blank"
-                  >
-                    <i className="fas fa-heart m-1 me-md-2"></i>
-                    <p className="d-none d-md-block mb-0">Wishlist</p>
-                  </a>
+                <a
+                  href="#"
+                  className="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center"
+                  target="_blank"
+                >
+                  <i className="fas fa-heart m-1 me-md-2"></i>
+                  <p className="d-none d-md-block mb-0">Wishlist</p>
+                </a>
+                <Link to="../pages/Cart">
                   <a
                     href="#"
                     className="border rounded py-1 px-3 nav-link d-flex align-items-center"
                     target="_blank"
                   >
-                    <i className="fas fa-shopping-cart m-1 me-md-2"></i>
-                    <p className="d-none d-md-block mb-0">My cart</p>
-                  </a>
-                </div>
-              </div>
+                    <i
+                      className="fas fa-shopping-cart m-1 me-md-2"
+                      style={{ color: "black" }}
+                    ></i>
 
-              <div className="col-lg-5 col-md-12 col-12">
-                {/* <div className="input-group float-center">
-                                <div className="form-outline">
-                                    <input type="text" id="form1" className="form-control" />
-                                    <label className="form-label" htmlFor="form1">Search</label>
-                                </div>
-                                <button type="button" className="btn btn-primary shadow-0">
-                                    <i className="fas fa-search"></i>
-                                </button>
-                            </div> */}
+                    <p
+                      className="d-none d-md-block mb-0"
+                      style={{ color: "black" }}
+                    >
+                      My cart
+                    </p>
+                    {cartCount > 0 && ( // Only show the notification if there are items in the cart
+                      <span
+                        className="badge badge-danger position-absolute"
+                        style={{
+                          top: "9px",
+                          right: "132px",
+                          fontSize: "0.7rem",
+                        }}
+                      >
+                        {cartCount}
+                      </span>
+                    )}
+                  </a>
+                </Link>
               </div>
             </div>
           </div>
         </div>
-
-        <div className="bg-primary mb-4">
-          <div className="container py-4">
-            <h3 className="text-white mt-2">Products</h3>
-
-            {/* <nav className="d-flex mb-2">
-                        <h6 className="mb-0">
-                            <a href="" className="text-white-50">Home</a>
-                            <span className="text-white-50 mx-2"> / </span>
-                            <a href="" className="text-white-50">Library</a>
-                            <span className="text-white-50 mx-2"> / </span>
-                            <a href="" className="text-white"><u>Data</u></a>
-                        </h6>
-                    </nav> */}
-          </div>
-        </div>
-      </header>
-    );
+      </div>
+    </header>
+  );
 }
 
 export default Header

@@ -29,10 +29,10 @@
 }
 .name {
   font-family: "Lobster", cursive !important;
-  color: #ffff;
+  color: rgb(24, 123, 173);
   font-size: 2.4rem;
-  padding: 0rem 0rem 0.3rem 1rem;
-  text-shadow: 0.1em 0.1em 0 rgb(22, 67, 90);
+  padding : 0 5px;
+  /* text-shadow: 0.1em 0.1em 0 rgb(22, 67, 90); */
   display: inline-block;
 }
 .cart {
@@ -51,7 +51,6 @@
 }
 .fullbody {
   display: flex;
-  margin-top: 66px;
 }
 .bodyleft {
   width: 40%;
@@ -290,4 +289,80 @@ padding: .3rem;
 }
 .fas{
   margin-right: 8px !important;
+}
+
+.footer-distributed {
+  background-color: #03182d;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  font: normal 16px sans-serif;
+  padding: 70px 50px;
+  margin-bottom: 0px;
+}
+
+.footer-distributed .footer-left p {
+  color: #8f9296;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Footer links */
+
+.footer-distributed p.footer-links {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+.footer-distributed p.footer-links a {
+  display: inline-block;
+  line-height: 1.8;
+  text-decoration: none;
+  color: inherit;
+}
+.footer-distributed p.footer-links a:hover {
+  color: #b2aeb2;
+}
+
+.footer-distributed .footer-right {
+  float: right;
+  margin-top: 6px;
+  max-width: 180px;
+}
+
+.footer-distributed .footer-right a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background-color: #33383b;
+  border-radius: 2px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
+  margin-left: 3px;
+}
+.footer-distributed .footer-right a:hover {
+  color: #000000;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+@media (max-width: 600px) {
+  .footer-distributed .footer-left,
+  .footer-distributed .footer-right {
+    text-align: center;
+  }
+
+  .footer-distributed .footer-right {
+    float: none;
+    margin: 0 auto 20px;
+  }
+
+  .footer-distributed .footer-left p.footer-links {
+    line-height: 1.8;
+  }
 }

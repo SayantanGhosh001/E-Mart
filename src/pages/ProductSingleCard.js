@@ -4,8 +4,11 @@ import get from "../api/api"; // Assuming this is your API function to fetch dat
 import "../css/product.css"
 import Header from './../components/Header';
 import LoadingSVG from "../image/Infinity@1x-1.0s-200px-200px.svg";
+import { useHandleBuyNow } from "../utils/cartUtils";
+import Popup from "../components/Popup";
 
 const ProductSingleCard = () => {
+  const { isPopupVisible, handleBuyNow, setPopupVisible } = useHandleBuyNow();
   const { id } = useParams(); // Extract the product ID from the URL
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -38,13 +41,20 @@ const ProductSingleCard = () => {
 const descriptionItems = product.description.split(/\.\s+(?=[a-zA-Z])/);
   return (
     <>
-     <Header/>
+      <Header />
       <div className="fullbody">
         <div className="bodyleft">
           <img src={product.image} alt={product.title} className="no1img" />
           <div className="buttons">
             <button className="button1">ADD TO CART</button>
-            <button className="button2">BUY NOW</button>
+            <button className="button2" onClick={handleBuyNow}>
+              BUY NOW
+            </button>
+            <Popup
+              message="Thank you for shopping"
+              isVisible={isPopupVisible}
+              onClose={() => setPopupVisible(false)}
+            />
           </div>
         </div>
         <div className="bodyright">

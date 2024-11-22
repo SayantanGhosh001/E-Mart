@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { CartContext } from "../components/CartContext";
 import Popup from "../components/Popup";
-import Header from "../components/Header"
+import Header from "../components/Header";
+import { useHandleBuyNow } from "../utils/cartUtils";
 const Cart = () => {
   const { cartItems, setCartItems } = useContext(CartContext);
+  const { isPopupVisible, handleBuyNow, setPopupVisible } = useHandleBuyNow();
 
   const handleQuantityChange = (item, increment) => {
     setCartItems(
@@ -29,11 +31,11 @@ const Cart = () => {
   );
   const shippingFee = 50; // Assuming a fixed shipping fee
   const orderTotal = subtotal + shippingFee;
-  const [isPopupVisible, setPopupVisible] = React.useState(false);
-  const handleBuyNow = () => {
-    setPopupVisible(true); // Show the popup when the item is added
-    setTimeout(() => setPopupVisible(false), 3000); // Hide popup after 3 seconds
-  };
+  // const [isPopupVisible, setPopupVisible] = React.useState(false);
+  // const handleBuyNow = () => {
+  //   setPopupVisible(true); // Show the popup when the item is added
+  //   setTimeout(() => setPopupVisible(false), 3000); // Hide popup after 3 seconds
+  // };
 
   return (
     <>

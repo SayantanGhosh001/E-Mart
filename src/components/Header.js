@@ -20,12 +20,17 @@ const Header = () => {
           >
             <div className="col-lg-2 col-sm-4 col-4">
               <a
-                href="#"
-                target="_blank"
-                className="float-start"
+                href="/"
+                // target="_blank"
+                className="float-start navbar-brand d-flex align-items-center"
                 onClick={() => (window.location.href = "/")}
               >
-                <img src={photo} height="45" style={{ marginBottom: "16px" }} />
+                <img
+                  className="img-fluid"
+                  src={photo}
+                  height="45"
+                  style={{ marginBottom: "16px", maxHeight:"45px"}}
+                />
                 <div className="name">E-Mart</div>
               </a>
             </div>
@@ -35,17 +40,19 @@ const Header = () => {
             >
               <div className="d-flex float-end">
                 <a
-                  href="#"
+                  // href="#"
                   className="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center"
-                  target="_blank"
+                  // target="_blank"
+                  style={{ cursor: "default" }}
                 >
                   <i className="fas fa-user-alt m-1 me-md-2"></i>
                   <p className="d-none d-md-block mb-0">Sign in</p>
                 </a>
                 <a
-                  href="#"
+                  // href="#"
                   className="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center"
-                  target="_blank"
+                  // target="_blank"
+                  style={{ cursor: "default" }}
                 >
                   <i className="fas fa-heart m-1 me-md-2"></i>
                   <p className="d-none d-md-block mb-0">Wishlist</p>

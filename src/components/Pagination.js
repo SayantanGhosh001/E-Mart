@@ -7,7 +7,7 @@ const Pagination = () => {
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
-                <li key="2" className="page-item active"><a className="page-link" href="#">1</a></li>
+        <li key="2" className="page-item active"><a className="page-link" href="#">1</a></li>
                 <li key="3" className="page-item"><a className="page-link" href="#">2</a></li>
                 <li key="4" className="page-item"><a className="page-link" href="#">3</a></li>
                 <li key="5" className="page-item"><a className="page-link" href="#">4</a></li>

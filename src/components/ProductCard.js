@@ -1,23 +1,24 @@
-import Rating from "./Rating"
+import Rating from "./Rating";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "./CartContext";
 import React, { useContext } from "react";
 import Popup from "./Popup";
 
-const ProductCard = ({ product}) => {
-const navigate = useNavigate();
-const handleProductClick = () => {
-// Navigate to the single product details page
-  console.log("Navigating to product details with ID:", product.id);
- navigate(`/product/${product.id}`);
-};
-const { addToCart } = useContext(CartContext);
-const [isPopupVisible, setPopupVisible] = React.useState(false);
-const handleAddToCart = () => {
-  addToCart(product);
-  setPopupVisible(true); // Show the popup when the item is added
-  setTimeout(() => setPopupVisible(false), 2000); // Hide popup after 3 seconds
-};
+const ProductCard = ({ product }) => {
+  const navigate = useNavigate();
+
+  const handleProductClick = () => {
+    // Navigate to the single product details page
+    console.log("Navigating to product details with ID:", product.id);
+    navigate(`/product/${product.id}`);
+  };
+  const { addToCart } = useContext(CartContext);
+  const [isPopupVisible, setPopupVisible] = React.useState(false);
+  const handleAddToCart = () => {
+    addToCart(product);
+    setPopupVisible(true); // Show the popup when the item is added
+    setTimeout(() => setPopupVisible(false), 2000); // Hide popup after 3 seconds
+  };
   return (
     <div key={product.id} className="col-lg-4 col-md-6 col-sm-6 d-flex my-1">
       <div className="card shadow-2-strong w-100 my-2 ">
@@ -60,4 +61,4 @@ const handleAddToCart = () => {
     </div>
   );
 };
-export default ProductCard
+export default ProductCard;

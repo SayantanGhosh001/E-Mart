@@ -1,4 +1,3 @@
-
 const Rating = (props) => {
     let rating=props.rating.rate
     let ratingCount=props.rating.count

@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/Popup.css"; // Create a CSS file for styling the popup
-import CorrectGif from "../image/correct.gif"
+import CorrectGif from "../image/correct.gif";
 
 const Popup = ({ message, isVisible, onClose }) => {
   if (!isVisible) return null;
